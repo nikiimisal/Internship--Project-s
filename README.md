@@ -340,11 +340,17 @@ USE studentdb;
 
 ```sql
 CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100),
     email VARCHAR(100),
     course VARCHAR(100),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    address VARCHAR(255),
+    age INT,
+    qual VARCHAR(100),
+    percent FLOAT,
+    yop INT,
+    PRIMARY KEY (id)
 );
 ```
 
