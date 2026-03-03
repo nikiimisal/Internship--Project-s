@@ -75,6 +75,9 @@ These implementations emphasize:
 
   <!-- 🌐 FIRST ROW -->
   <p>
+    <a href="https://www.youtube.com/@nikhilmisal8027" target="_blank">
+      <img src="https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=0D1117&color=FF0000" alt="YouTube" />
+    </a>
     <a href="https://www.linkedin.com/in/nikhilmisal/" target="_blank">
       <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0D1117&color=0077B5" alt="LinkedIn" />
     </a>&nbsp;
