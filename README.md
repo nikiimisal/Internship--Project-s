@@ -292,6 +292,181 @@ The presence of the `student/` directory confirms:
 
 ---
 
+# ✅ STEP 4 – Setup RDS MySQL
+
+### 🗄️ Create Database
+
+Go to:
+AWS Console → RDS → Create Database
+
+**creation method**:Easy create
+**Engine:** MySQL  
+**Template:** Free Tier  
+**DB Name:** `studentdb` 
+**Master Username:** `admin`
+**Password:** `rootroot`  
+**Public Access:** ❌ NO  
+**VPC:** Same as EC2  
+
+---
+
+### 🔐 Security Group Configuration
+
+**Allow:**
+- **MySQL (3306)** → Backend EC2 Security Group Only  
+
+❌ Do NOT allow 3306 to 0.0.0.0/0
+
+
+---
+
+# ✅ STEP 5 – Create Database & Table
+
+### 🔗 Connect from Backend EC2
+
+```bash
+sudo yum install mysql -y
+mysql -h <RDS-endpoint> -u admin -p
+```
+
+### 🗄️ Create Database
+
+```sql
+CREATE DATABASE studentdb;
+USE studentdb;
+```
+
+### 📋 Create Table
+
+```sql
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    course VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+---
+
+# ✅ STEP 6 – Add MySQL Connector
+
+### 📦 Download MySQL Connector
+
+```bash
+cd /opt/tomcat/lib
+sudo wget <mysql-connector.jar link>
+```
+
+### 🔄 Restart Tomcat
+
+if you u install manually:
+```bash
+cd /opt/tomcat/bin
+sudo ./shutdown.sh
+sudo ./startup.sh
+curl http://localhost:8080/student/
+```
+
+
+```bash
+sudo systemctl restart tomcat
+curl http://localhost:8080/student/
+```
+
+
+---
+
+
+# ✅ STEP 7 – Configure Reverse Proxy (Nginx)
+
+### 🔗 SSH into Proxy EC2
+
+```bash
+sudo yum install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+### ⚙️ Edit Nginx Configuration
+
+```bash
+sudo nano /etc/nginx/nginx.conf
+```
+
+Inside `server` block, add:
+
+```nginx
+ # Proxy for student app
+    location /student/ {
+        proxy_pass http://172.31.31.215:8080/student/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+```
+
+### 🔄 Restart Nginx
+
+```bash
+sudo systemctl restart nginx
+```
+
+---
+
+# ✅ STEP 8 – Block Direct Backend Access
+
+**Backend Security Group:**
+
+❌ Remove **8080** access from **0.0.0.0/0**  
+✅ Allow **8080** only from **Proxy Security Group**
+
+---
+
+# ✅ STEP 9 – Final Access URL
+
+Now access your application via:
+
+```
+http://<Proxy-Public-IP>/student
+```
+
+✔️ Works only through the proxy  
+✔️ Backend remains private
+
+
+---
+---
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
