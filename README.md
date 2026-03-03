@@ -28,7 +28,7 @@ The assignments focus on real-world cloud architecture, secure deployments, infr
 
 - 🚀 [Project 1 – Java Application Deployment with Reverse Proxy on AWS](./Project-1-Java-Deployment)
 - 💾 [Project 2 – AWS Backup Plan for EC2 and RDS](./Project-2-AWS-Backup)
-- 📊 [Project 3 – Data Ingestion (S3 → RDS → Glue Fallback) using Docker](./Project-3-S3-RDS-Glue)
+- 📊 [Project 3 – Data Ingestion (S3 → RDS → Glue Fallback) using Docker(Python Application)](./Project-3-S3-RDS-Glue)
 - 📈 [Project 4 – Deploy Prometheus & Grafana using Terraform & Helm](./Project-4-Monitoring-Terraform)
 - ☸️ [Project 5 – Deploying & Managing Microservices in Kubernetes](./Project-5-Kubernetes-Microservices)
 
@@ -113,6 +113,7 @@ These implementations emphasize:
 ---
 
 
+#  🚀 Project: Java App Deployment with Reverse Proxy on AWS
 
 
 
@@ -120,6 +121,176 @@ These implementations emphasize:
 
 
 
+
+
+
+
+
+
+
+# 🚀 STEP 1 – Launch EC2 Instances
+
+## 1️⃣ Backend Server (Java + Tomcat)
+
+**Name:** `backend-server`
+**OS:** Amazon Linux 2  
+**Instance Type:** t2.micro  
+**Key Pair:** Create or select existing  
+
+### 🔐 Security Group (Backend SG)
+
+**Allow:**
+- **SSH (22)** → Your IP
+- **Custom TCP (8080)** → ONLY Proxy SG<br>
+  >so that for create first `Proxy SG`
+
+❌ **Do NOT allow 8080 to 0.0.0.0/0**
+
+
+---
+
+## 2️⃣ Reverse Proxy Server
+
+Launch another EC2 instance
+
+**Name:** `proxy-server`  
+**OS:** Amazon Linux 2  
+
+### 🔐 Security Group (`Proxy SG`)
+
+**Allow:**
+- **SSH (22)** → Your IP
+- **HTTP (80)** → 0.0.0.0/0
+
+---
+
+
+# ✅ STEP 2 – Install Java & Tomcat (Backend EC2)
+
+### 🔐 SSH into Backend EC2
+
+```bash
+sudo yum update -y
+sudo yum install java-17-amazon-corretto -y
+```
+
+### 📦 Install Tomcat
+
+```bash
+sudo yum install tomcat -y
+sudo systemctl start tomcat
+sudo systemctl enable tomcat
+```
+
+
+## ❗ If Tomcat Installation Fails
+
+If you get:
+
+```
+No match for argument: tomcat
+```
+
+Then install Tomcat manually:
+
+```bash
+cd /opt
+# Change directory to /opt where we will install Tomcat
+
+sudo wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.85/bin/apache-tomcat-9.0.85.tar.gz
+# Download Tomcat compressed file from Apache archive repository
+
+sudo tar -xvzf apache-tomcat-9.0.85.tar.gz
+# Extract the downloaded .tar.gz file
+# x = extract
+# v = verbose (shows progress)
+# z = unzip (.gz format)
+# f = file
+
+sudo mv apache-tomcat-9.0.85 tomcat
+# Rename the extracted folder to 'tomcat' for easier access
+
+sudo chmod -R 755 /opt/tomcat
+# Give read and execute permissions recursively to all Tomcat files
+
+cd /opt/tomcat/bin
+# Move to Tomcat bin directory where startup scripts are stored
+
+sudo ./startup.sh
+# Start the Tomcat server
+# If successful, it will show "Tomcat started"
+```
+
+---
+
+### 🔎 Verify Tomcat
+
+in terminal:
+
+```
+curl http://localhost:8080
+```
+
+---
+
+# ✅ STEP 3 – Deploy student.war
+
+### 📂 Move to Tomcat Webapps Directory
+
+```bash
+cd /opt/tomcat/webapps/                      # we are using this path because we are download tomcat manually
+sudo wget <student.war download link>
+```
+```
+cd /usr/share/tomcat/webapps/                # if you are using yum store to install tomcat use this path
+```
+
+### 🔄 Restart Tomcat
+
+#### 👉 If Tomcat installed manually:
+
+```bash
+cd /opt/tomcat/bin
+sudo ./shutdown.sh
+sudo ./startup.sh
+```
+
+#### 👉 If Tomcat installed via yum:
+
+```bash
+sudo systemctl restart tomcat
+```
+
+### 🔎 Verify Deployment (Internal Check)
+
+```
+curl http://localhost:8080/student/
+```
+If successful, you should see the **Student Registration Form HTML page**.
+
+---
+
+### 📁 Validate WAR Extraction (Optional)
+
+```bash
+cd /opt/tomcat/webapps/
+ls
+```
+
+Expected Output:
+
+```
+student.war
+student/
+```
+
+The presence of the `student/` directory confirms:
+
+- WAR file extracted successfully  
+- Application context is active  
+- Deployment completed successfully  
+
+---
 
 
 
