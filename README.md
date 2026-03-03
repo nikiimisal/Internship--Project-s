@@ -1,16 +1,4 @@
 
-<h1 align="center">Internship Project Implementations & Solutions</h1>
-
-
----
-
->This repository contains practical solutions developed during internship projects.
-
-> To review detailed scenarios, challenges faced, and complete project explanations,  
-> 👉 **[Click Here](https://github.com/nikiimisal/Internship--Project-s/blob/main/Internship_Project's.pdf)**
-
-
-
 
 
 <h1 align="center">Internship Project Assignments & Implementations</h1>
