@@ -87,7 +87,7 @@ These implementations emphasize:
     <a href="https://www.leetcode.com/" target="_blank">
       <img src="https://img.shields.io/badge/LeetCode-Practice-FFA116?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0D1117&color=FCA311" alt="LeetCode" />
     </a>&nbsp;
-    <a href="https://github.com/nikiimisal" target="_blank">
+    <a href="https://nikiimisal.github.io/Portfollio.in/" target="_blank">
       <img src="https://img.shields.io/badge/Portfolio-Explore-00C9FF?style=for-the-badge&logo=react&logoColor=61DAFB&labelColor=0D1117&color=92FE9D" alt="Portfolio" />
     </a>
   </p>
