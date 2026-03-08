@@ -450,6 +450,405 @@ http://<Proxy-Public-IP>/student
 
 
 
+# 🚀 Project: AWS Backup Plan for EC2 and RDS
+
+## 📌 Project Overview
+
+This project demonstrates how to configure **automated backups and recovery** for AWS resources using **AWS Backup**.
+
+The infrastructure includes:
+
+- **Amazon EC2 instance** running a web server
+- **Amazon RDS database** storing sample data
+- **AWS Backup Plan** protecting both EC2 and RDS resources
+
+The goal is to create a **centralized backup strategy** and validate backup jobs and recovery points.
+
+---
+
+# 🎯 Objective
+
+- Launch an **EC2 instance** with a web server and sample data  
+- Launch an **RDS database** with test records  
+- Configure **AWS Backup Vault**  
+- Create a **Backup Plan**  
+- Assign **EC2 and RDS resources** to the backup plan  
+- Trigger **on-demand backup**  
+- Validate **backup jobs and recovery points**
+
+---
+
+# 🏗️ Architecture
+
+```
+EC2 Instance (Web Server)
+        │
+        │
+   AWS Backup Plan
+        │
+        │
+RDS Database (MySQL)
+```
+
+Both **EC2 and RDS resources** are protected using the **AWS Backup service**.
+
+---
+
+# 🛠️ Technologies Used
+
+- **Amazon EC2**
+- **Amazon RDS (MySQL)**
+- **AWS Backup**
+- **Nginx Web Server**
+- **MySQL Client**
+- **AWS Console**
+
+---
+
+# 🚀 STEP 1 – Launch EC2 Instance
+
+Go to:
+
+`AWS Console → EC2 → Launch Instance`
+
+### Instance Configuration
+
+| Setting | Value |
+|------|------|
+| Name | `backup-ec2` |
+| AMI | `Amazon Linux 2` |
+| Instance Type | `t2.micro` |
+| Storage | `8GB` |
+| Key Pair | `Create new or use existing` |
+
+### Security Group
+
+Allow:
+
+- `SSH (22)` → **Your IP**
+- `HTTP (80)` → **0.0.0.0/0**
+
+Launch the instance.
+
+---
+
+# 🔐 STEP 2 – Connect to EC2
+
+SSH into the instance:
+
+```bash
+ssh -i key.pem ec2-user@<EC2-Public-IP>
+```
+
+---
+
+# 🌐 STEP 3 – Install Web Server (Nginx)
+
+Update system packages
+
+```bash
+sudo yum update -y
+```
+
+Install **Nginx**
+
+```bash
+sudo yum install nginx -y
+```
+
+Start Nginx
+
+```bash
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+---
+
+# 📄 STEP 4 – Create Sample Web Data
+
+Navigate to web directory
+
+```bash
+cd /usr/share/nginx/html
+```
+
+Edit the web page
+
+```bash
+sudo nano index.html
+```
+
+Add sample content
+
+```html
+<h1>AWS Backup Project</h1>
+<p>This data is stored on EC2 and will be protected by AWS Backup.</p>
+```
+
+---
+
+# 🔎 Verify Web Server
+
+Open in browser:
+
+```
+http://<EC2-Public-IP>
+```
+
+You should see the **sample web page**.
+
+📸 Take screenshot for submission.
+
+---
+
+# 🗄️ STEP 5 – Launch RDS Database
+
+Go to:
+
+`AWS Console → RDS → Create Database`
+
+### Database Configuration
+
+| Setting | Value |
+|------|------|
+| Engine | `MySQL` |
+| Template | `Free Tier` |
+| DB Instance Identifier | `backup-db` |
+| Master Username | `admin` |
+| Password | `Password123` |
+| Instance Class | `db.t3.micro` |
+| Storage | `20GB` |
+| Public Access | `Yes` |
+
+Click **Create Database**.
+
+Wait until status becomes **Available**.
+
+---
+
+# 🔗 STEP 6 – Connect to RDS from EC2
+
+Install MySQL client
+
+```bash
+sudo yum install mysql -y
+```
+
+Connect to database
+
+```bash
+mysql -h <RDS-ENDPOINT> -u admin -p
+```
+
+---
+
+# 🗃️ STEP 7 – Create Test Database and Table
+
+Create database
+
+```sql
+CREATE DATABASE backupdb;
+USE backupdb;
+```
+
+Create table
+
+```sql
+CREATE TABLE users (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(50),
+email VARCHAR(100)
+);
+```
+
+Insert sample data
+
+```sql
+INSERT INTO users (name,email)
+VALUES ('Nikhil','nikhil@test.com');
+```
+
+Verify records
+
+```sql
+SELECT * FROM users;
+```
+
+📸 Take screenshot of table output.
+
+---
+
+# 💾 STEP 8 – Open AWS Backup Service
+
+Navigate to:
+
+`AWS Console → AWS Backup`
+
+---
+
+# 🗄️ STEP 9 – Create Backup Vault
+
+Go to:
+
+`Backup Vaults → Create Backup Vault`
+
+Configuration:
+
+| Setting | Value |
+|------|------|
+| Vault Name | `ProjectBackupVault` |
+| Encryption | `Default` |
+
+Click **Create Backup Vault**.
+
+---
+
+# 📋 STEP 10 – Create Backup Plan
+
+Go to:
+
+`Backup Plans → Create Backup Plan`
+
+Choose:
+
+`Build a new plan`
+
+### Backup Rule Configuration
+
+| Setting | Value |
+|------|------|
+| Plan Name | `EC2-RDS-BackupPlan` |
+| Rule Name | `DailyBackup` |
+| Backup Vault | `ProjectBackupVault` |
+| Backup Frequency | `Daily` |
+| Start Window | `60 Minutes` |
+| Completion Window | `180 Minutes` |
+| Retention Period | `7 Days` |
+
+Click **Create Plan**.
+
+---
+
+# 🔗 STEP 11 – Assign Resources to Backup Plan
+
+Click:
+
+`Assign Resources`
+
+Configuration:
+
+| Setting | Value |
+|------|------|
+| Assignment Name | `BackupResources` |
+| IAM Role | `Default Role` |
+| Resource Selection | `Specific Resources` |
+
+Select:
+
+- `EC2 Instance`
+- `RDS Database`
+
+Click **Assign Resources**.
+
+---
+
+# ▶️ STEP 12 – Trigger On-Demand Backup
+
+Go to:
+
+`AWS Backup → Protected Resources`
+
+Select resource and click:
+
+`Create On-demand Backup`
+
+Configuration:
+
+| Setting | Value |
+|------|------|
+| Backup Vault | `ProjectBackupVault` |
+| Retention | `7 Days` |
+
+Click **Create Backup**.
+
+---
+
+# ✅ STEP 13 – Validate Backup Jobs
+
+Go to:
+
+`AWS Backup → Backup Jobs`
+
+Check:
+
+```
+Status = Completed
+```
+
+---
+
+# ♻️ STEP 14 – Verify Recovery Points
+
+Navigate to:
+
+`Backup Vaults → ProjectBackupVault`
+
+You should see recovery points for:
+
+- `EC2 Instance`
+- `RDS Database`
+
+📸 Take screenshot.
+
+---
+
+# 📸 Required Screenshots
+
+Include these screenshots:
+
+1. **EC2 instance running**
+2. **Web server page**
+3. **RDS instance running**
+4. **MySQL table data**
+5. **Backup Plan configuration**
+6. **Backup Jobs status**
+7. **Backup Vault recovery points**
+
+---
+
+# ⚠️ Issues Faced
+
+Possible issues during implementation:
+
+- RDS connection failure due to **security group configuration**
+- Backup job delay during first execution
+- IAM role permission issues
+
+These were resolved by verifying **security groups**, **RDS endpoint**, and **IAM permissions**.
+
+---
+
+# 📌 Conclusion
+
+This project demonstrates how to implement a **centralized backup solution using AWS Backup** to protect AWS resources such as **EC2 instances and RDS databases**.
+
+Automated backups ensure **data protection**, **disaster recovery**, and **high availability**.
+
+---
+
+# 👨‍💻 Author
+
+**Nikhil Misal**
+
+AWS Cloud Project
+
+
+
+---
+---
+---
+
 
 
 
