@@ -737,23 +737,22 @@ Click **Create Plan**.
 
 Click:
 
-`Assign Resources`
+- `EC2-RDS-BackupPlan` ==> Scroll Down ==> click the checkbox `Resource assignments` ==> and then click `Assign Resources`
 
 Configuration:
 
-| Setting | Value |
-|------|------|
-| Resource type | `EC2` , `RDS` |
-| Select EC2-instance id | `backup-ec2` `backup-db` | 
-| Backup window |  `Create Backup Now` |
-| retention period | `7-Days` |
-| Assignment Name | `BackupResources` |
-| IAM Role | `Default Role` |
-| Resource Selection | `Specific Resources` |
+| Setting            | Value                           |
+| ------------------ | ------------------------------- |
+| Assignment Name    | EC2-RDS-BackupPlan              |
+| IAM Role           | Default role                    |
+| Resource Selection | Include specific resource types |
+| Resources Selected | EC2 Instance, RDS Database      |
 
-> Make shure After completing the backup for EC2, repeat the same steps for the RDS database as well
+
+
 
 Click **Assign Resources**.
+
 
 ---
 
@@ -769,12 +768,21 @@ Select resource and click:
 
 Configuration:
 
+
+
 | Setting | Value |
 |------|------|
-| Backup Vault | `ProjectBackupVault` |
-| Retention | `7 Days` |
+| Resource type | `EC2` , `RDS` |
+| Select EC2-instance id | `backup-ec2` `backup-db` | 
+| Backup window |  `Create Backup Now` |
+| retention period | `7-Days` |
+| Backup vault | `ProjectBackupVault` |
+| IAM Role | `Default Role` |
+
 
 Click **Create Backup**.
+
+> Make shure After completing the backup for EC2, repeat the same steps for the RDS database as well
 
 ---
 
