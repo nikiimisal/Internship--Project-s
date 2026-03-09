@@ -800,24 +800,7 @@ Status = Completed
 
 ---
 
-# ♻️ STEP 14 – Verify Recovery Points
-
-Navigate to:
-
-`Backup Vaults → ProjectBackupVault`
-
-You should see recovery points for:
-
-- `EC2 Instance`
-- `RDS Database`
-
-📸 Take screenshot.
-
----
-
-
-
-# 🔍 STEP 15 – View Backup Recovery Points
+# 🚀 STEP 14 – Verify Recovery Points
 
 If you want to verify whether the **backup has been successfully created**, you can view the **Recovery Points** stored inside the Backup Vault.
 
@@ -854,7 +837,7 @@ This confirms that the **backup was successfully created and stored in the backu
 
 ---
 
-# ♻️ STEP 16 – Restore Backup and Verify Original Data
+# ♻️ STEP 15 – Restore Backup and Verify Original Data
 
 AWS Backup does **not allow direct viewing of raw data** inside a backup.
 
@@ -937,7 +920,6 @@ You should see the same HTML content that was stored earlier.
 
 📌 Important Note
 
-
 >AWS Backup stores data in an encrypted backup format.
 >The raw data cannot be viewed directly from the backup vault.
 >To access the original data, the resource must be restored from a recovery point.
@@ -947,19 +929,6 @@ You should see the same HTML content that was stored earlier.
 
 
 ---
-
-# 📸 Required Screenshots
-
-Include these screenshots:
-
-1. **EC2 instance running**
-2. **Web server page**
-3. **RDS instance running**
-4. **MySQL table data**
-5. **Backup Plan configuration**
-6. **Backup Jobs status**
-7. **Backup Vault recovery points**
-
 ---
 
 # ⚠️ Issues Faced
