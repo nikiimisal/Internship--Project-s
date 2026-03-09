@@ -924,6 +924,12 @@ You should see the same HTML content that was stored earlier.
 >The raw data cannot be viewed directly from the backup vault.
 >To access the original data, the resource must be restored from a recovery point.
 
+---
+---
+
+**📌 Second Important Note:**
+
+After completing the project, make sure to delete all the AWS resources that were created (such as EC2 instances, RDS databases, backup plans, and backup vaults). If these resources are left running, AWS may continue to charge for their usage.
 
 
 
