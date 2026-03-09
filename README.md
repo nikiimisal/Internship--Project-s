@@ -815,6 +815,139 @@ You should see recovery points for:
 
 ---
 
+
+
+# 🔍 STEP 15 – View Backup Recovery Points
+
+If you want to verify whether the **backup has been successfully created**, you can view the **Recovery Points** stored inside the Backup Vault.
+
+Go to:
+
+`AWS Console → AWS Backup → Backup Vaults`
+
+Open the vault created earlier:
+
+`ProjectBackupVault`
+
+Inside the vault you will see **Recovery Points**.
+
+Recovery points represent the **stored backups of AWS resources**.
+
+You should see recovery points for:
+
+- **EC2 Instance**
+- **RDS Database**
+
+Click on a recovery point to view details such as:
+
+| Detail | Description |
+|------|------|
+| Resource ID | EC2 Instance ID or RDS DB Identifier |
+| Resource Type | EC2 / RDS |
+| Backup Vault | ProjectBackupVault |
+| Backup Creation Time | Time when backup was created |
+| Status | Completed |
+
+This confirms that the **backup was successfully created and stored in the backup vault**.
+
+📸 Take a screenshot of the **Recovery Points section** for project submission.
+
+---
+
+# ♻️ STEP 16 – Restore Backup and Verify Original Data
+
+AWS Backup does **not allow direct viewing of raw data** inside a backup.
+
+To view the **original stored data** (for example: `name`, `email`), you must **restore the resource from the backup**.
+
+---
+
+## 🔁 Restore RDS Database from Backup
+
+Go to:
+
+`AWS Console → AWS Backup → Backup Vaults → ProjectBackupVault`
+
+Steps:
+
+1. Open **Recovery Points**
+2. Select the **RDS Database recovery point**
+3. Click **Restore**
+
+### Restore Configuration
+
+| Setting | Value |
+|------|------|
+| Restore Type | Restore as new DB |
+| DB Identifier | `backup-db-restore` |
+| Instance Class | Same as original |
+| VPC & Subnet | Same as original |
+| Public Access | Yes |
+
+Click **Restore**.
+
+Wait until the database status becomes **Available**.
+
+---
+
+## 🔗 Connect to Restored RDS Database
+
+Connect from EC2:
+
+```bash
+mysql -h <RESTORED-RDS-ENDPOINT> -u admin -p
+```
+Verify the database records:
+```SQL
+USE backupdb;
+SELECT * FROM users;
+```
+You should see the original stored data:
+```
++----+--------+------------------+
+| id | name   | email            |
++----+--------+------------------+
+|  1 | Nikhil | nikhil@test.com  |
++----+--------+------------------+
+```
+📸 Take a screenshot of the restored database output.
+
+---
+
+## 🖥️ (Optional) Restore EC2 Instance from Backup
+
+You can also restore the **EC2 instance** from the backup.
+
+Go to:
+
+`AWS Backup → Backup Vaults → ProjectBackupVault`
+
+### Steps
+
+1. Select the **EC2 recovery point**
+2. Click **Restore**
+3. Restore as a **New EC2 Instance**
+
+After the instance is launched, verify the stored web data:
+
+```bash
+cat /usr/share/nginx/html/index.html
+```
+You should see the same HTML content that was stored earlier.
+
+📌 Important Note
+
+
+>AWS Backup stores data in an encrypted backup format.
+>The raw data cannot be viewed directly from the backup vault.
+>To access the original data, the resource must be restored from a recovery point.
+
+
+
+
+
+---
+
 # 📸 Required Screenshots
 
 Include these screenshots:
