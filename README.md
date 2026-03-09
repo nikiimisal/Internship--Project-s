@@ -613,13 +613,16 @@ Go to:
 | Setting | Value |
 |------|------|
 | Engine | `MySQL` |
-| Template | `Free Tier` |
+| Template | `Dev/Test` |
+|Availability and durability|  `Multi-AZ DB (2 instances)` |
 | DB Instance Identifier | `backup-db` |
 | Master Username | `admin` |
-| Password | `Password123` |
+| Password | `rootroot` |
 | Instance Class | `db.t3.micro` |
 | Storage | `20GB` |
 | Public Access | `Yes` |
+
+>Public Access `yes` only for this project. In development environments, public access is usually set to `No`.
 
 Click **Create Database**.
 
@@ -740,6 +743,10 @@ Configuration:
 
 | Setting | Value |
 |------|------|
+| Resource type | `EC2` |
+| Select EC2-instance id | `backup-ec2` | 
+| Backup window |  `Create Backup Now` |
+| retention period | `7-Days` |
 | Assignment Name | `BackupResources` |
 | IAM Role | `Default Role` |
 | Resource Selection | `Specific Resources` |
