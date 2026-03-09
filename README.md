@@ -635,7 +635,7 @@ Wait until status becomes **Available**.
 Install MySQL client
 
 ```bash
-sudo yum install mysql -y
+sudo yum install mariadb105 -y
 ```
 
 Connect to database
@@ -743,18 +743,15 @@ Configuration:
 
 | Setting | Value |
 |------|------|
-| Resource type | `EC2` |
-| Select EC2-instance id | `backup-ec2` | 
+| Resource type | `EC2` , `RDS` |
+| Select EC2-instance id | `backup-ec2` `backup-db` | 
 | Backup window |  `Create Backup Now` |
 | retention period | `7-Days` |
 | Assignment Name | `BackupResources` |
 | IAM Role | `Default Role` |
 | Resource Selection | `Specific Resources` |
 
-Select:
-
-- `EC2 Instance`
-- `RDS Database`
+> Make shure After completing the backup for EC2, repeat the same steps for the RDS database as well
 
 Click **Assign Resources**.
 
