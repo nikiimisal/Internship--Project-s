@@ -530,6 +530,16 @@ Allow:
 
 Launch the instance.
 
+
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20164323.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
+
 ---
 
 # 🔐 STEP 2 – Connect to EC2
@@ -598,7 +608,12 @@ http://<EC2-Public-IP>
 
 You should see the **sample web page**.
 
-📸 Take screenshot for submission.
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20163734.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
 
 ---
 
@@ -627,6 +642,12 @@ Go to:
 Click **Create Database**.
 
 Wait until status becomes **Available**.
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215036.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
 
 ---
 
@@ -678,7 +699,12 @@ Verify records
 SELECT * FROM users;
 ```
 
-📸 Take screenshot of table output.
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215147.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
 
 ---
 
@@ -704,6 +730,15 @@ Configuration:
 | Encryption | `Default` |
 
 Click **Create Backup Vault**.
+
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215314.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
 
 ---
 
@@ -731,6 +766,18 @@ Choose:
 
 Click **Create Plan**.
 
+
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215353.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
+
+
+
 ---
 
 # 🔗 STEP 11 – Assign Resources to Backup Plan
@@ -752,6 +799,18 @@ Configuration:
 
 
 Click **Assign Resources**.
+
+
+
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215609.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
+
 
 
 ---
@@ -784,6 +843,15 @@ Click **Create Backup**.
 
 > Make shure After completing the backup for EC2, repeat the same steps for the RDS database as well
 
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215707.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
+
+
 ---
 
 # ✅ STEP 13 – Validate Backup Jobs
@@ -797,6 +865,15 @@ Check:
 ```
 Status = Completed
 ```
+
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215735.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
 
 ---
 
@@ -833,7 +910,15 @@ Click on a recovery point to view details such as:
 
 This confirms that the **backup was successfully created and stored in the backup vault**.
 
-📸 Take a screenshot of the **Recovery Points section** for project submission.
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20220044.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
+
 
 ---
 
