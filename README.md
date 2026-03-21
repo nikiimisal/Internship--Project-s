@@ -327,7 +327,7 @@ AWS Console → RDS → Create Database
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20102202.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20102202.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
