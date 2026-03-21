@@ -525,17 +525,8 @@ As a result:
 
 #### Troubleshooting & Solution
 
-- The student.war file code was updated
-- Inspected `.class` files using:
-```bash
-  strings StudentDAO.class | grep jdbc
-```
-- Identified JNDI usage (`jdbc/TestDB`)  
-- Updated the application configuration to resolve the database connectivity issue  
-- Added JNDI configuration in Tomcat using `context.xml`  
-- Modified the deployed WAR structure (added `META-INF/context.xml`) and redeployed the application  
-- Restarted the Tomcat server  
-
+- “The original student.war did not successfully connect to the database. To resolve this, the WAR file was extracted, necessary configuration changes were made (including database connection handling), and the application was repackaged and redeployed on Tomcat. This ensured successful communication with the Amazon RDS instance.”
+  
 Result:
 - Application successfully connected to Amazon RDS  
 - Form data stored correctly in the database  
