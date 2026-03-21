@@ -302,7 +302,7 @@ AWS Console → RDS → Create Database
 **creation method**:Easy create
 **Engine:** MySQL  
 **Template:** Free Tier  
-**DB Name:** `studentdb` 
+**DB Name:** `root` 
 **Master Username:** `admin`
 **Password:** `rootroot`  
 **Public Access:** ❌ NO  
