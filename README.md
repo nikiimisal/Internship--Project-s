@@ -365,6 +365,32 @@ cd /opt/tomcat/lib
 sudo wget <mysql-connector.jar link>
 ```
 
+### 🔗 Configure Database Connection (JNDI)
+
+📍 Create directory (if not exists):
+```Bash
+mkdir -p /opt/tomcat/webapps/student/META-INF
+```
+📍 Create file:
+```Bash
+sudo nano /opt/tomcat/webapps/student/META-INF/context.xml
+```
+📄 Add configuration:
+```XML
+<Context>
+    <Resource name="jdbc/TestDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="admin"
+              password="rootroot"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://<RDS-endpoint>:3306/studentdb"/>
+</Context>
+```
+
+>👉 Replace <RDS-endpoint> with your actual RDS endpoint
+
+
 ### 🔄 Restart Tomcat
 
 if you u install manually:
