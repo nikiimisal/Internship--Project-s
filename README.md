@@ -468,6 +468,85 @@ http://<Proxy-Public-IP>/student
 ✔️ Works only through the proxy  
 ✔️ Backend remains private
 
+---
+
+<br>
+
+## 📊 Summary Report
+
+### 📸 Screenshot of Stored Registration Data
+
+<img here>
+
+###  Explanation of traffic flow: Proxy → Backend 
+
+1. User sends request to Proxy Server (Nginx) via HTTP (port 80)
+2. Nginx forwards the request to Backend Server (Tomcat) on port 8080
+3. Tomcat processes the request and interacts with the application
+4. Application connects to Amazon RDS (MySQL) using JNDI DataSource
+5. Response flows back from Backend → Proxy → User
+
+---
+
+### Tools and Services Used
+
+- AWS EC2 (Backend & Proxy servers)
+- AWS RDS (MySQL Database)
+- Apache Tomcat (Application Server)
+- Nginx (Reverse Proxy)
+- Java (JDK 17)
+- MySQL Connector (JDBC Driver)
+- Linux (Amazon Linux 2)
+
+---
+
+### Challenges Encountered and Troubleshooting
+
+During deployment, the application UI was accessible, but form data was not being stored in the database.
+
+#### Issue: Database Connection Failure
+
+Initially, it was assumed that the database configuration was hardcoded in `.class` files using:
+
+```
+jdbc:mysql://localhost:3306/studentdb
+```
+However, after further debugging, it was found that the application was using a JNDI DataSource:
+```
+jdbc/TestDB
+```
+Since the required JNDI configuration was missing in Tomcat, the application was unable to connect to the Amazon RDS database.
+
+As a result:
+- Database connection failed  
+- Form submissions were not saved  
+
+---
+
+#### Troubleshooting & Solution
+
+- The student.war file code was updated
+- Inspected `.class` files using:
+```bash
+  strings StudentDAO.class | grep jdbc
+```
+- Identified JNDI usage (`jdbc/TestDB`)  
+- Updated the application configuration to resolve the database connectivity issue  
+- Added JNDI configuration in Tomcat using `context.xml`  
+- Modified the deployed WAR structure (added `META-INF/context.xml`) and redeployed the application  
+- Restarted the Tomcat server  
+
+Result:
+- Application successfully connected to Amazon RDS  
+- Form data stored correctly in the database  
+- End-to-end functionality achieved  
+
+Key Learning:
+- Importance of identifying actual connection type (JDBC vs JNDI)  
+- Compiled .class files cannot be modified directly  
+- External configuration and WAR-level changes are essential in real-world deployments  
+
+
 
 ---
 ---
