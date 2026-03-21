@@ -163,14 +163,10 @@ Launch another EC2 instance
 - **HTTP (80)** → 0.0.0.0/0
 
 
-<p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-03%20155508.png?raw=true" width="500" alt="Initialize Repository Screenshot">
-</p>
 
-
-<p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-03%20155358.png?raw=true" width="500" alt="Initialize Repository Screenshot">
-</p>
+| **Instance's**    | **Security Group**          |
+|--------------------------------|------------------------------------|
+| ![VS](https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-03%20155508.png?raw=true) | ![AWS](https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-03%20155358.png?raw=true) |
 
 
 ---
@@ -487,10 +483,6 @@ http://<Proxy-Public-IP>/student
 ✔️ Backend remains private
 
 
-<p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20073403.png?raw=true" width="500" alt="Initialize Repository Screenshot">
-</p>
-
 | **Browser**    | ****          |
 |--------------------------------|------------------------------------|
 | ![VS](https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20073403.png?raw=true) | ![AWS](https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20110355.png?raw=true) |
@@ -510,7 +502,6 @@ http://<Proxy-Public-IP>/student
 <br>
 
 ## 📊 Summary Report
-
 
 
 
