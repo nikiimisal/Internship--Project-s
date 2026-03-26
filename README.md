@@ -112,20 +112,26 @@ These implementations emphasize:
 ---
 ---
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+---
+
 
 #  🚀 Project: Java App Deployment with Reverse Proxy on AWS
 
-
-
-
-
-
-
-
-
-
-
-
+---
 
 
 # 🚀 STEP 1 – Launch EC2 Instances
