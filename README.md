@@ -129,14 +129,18 @@ These implementations emphasize:
 ---
 
 
-#  🚀 Project: Java App Deployment with Reverse Proxy on AWS
+#  🚀 Project 1: Java App Deployment with Reverse Proxy on AWS
 
 ---
 
+<br>
+<br>
+<br>
 
-# 🚀 STEP 1 – Launch EC2 Instances
 
-## 1️⃣ Backend Server (Java + Tomcat)
+## 🚀 STEP 1 – Launch EC2 Instances
+
+### 1️⃣ Backend Server (Java + Tomcat)
 
 **Name:** `backend-server`
 **OS:** Amazon Linux 2  
@@ -155,7 +159,7 @@ These implementations emphasize:
 
 ---
 
-## 2️⃣ Reverse Proxy Server
+### 2️⃣ Reverse Proxy Server
 
 Launch another EC2 instance
 
@@ -178,7 +182,7 @@ Launch another EC2 instance
 ---
 
 
-# ✅ STEP 2 – Install Java & Tomcat (Backend EC2)
+## ✅ STEP 2 – Install Java & Tomcat (Backend EC2)
 
 ### 🔐 SSH into Backend EC2
 
@@ -196,7 +200,7 @@ sudo systemctl enable tomcat
 ```
 
 
-## ❗ If Tomcat Installation Fails
+### ❗ If Tomcat Installation Fails
 
 If you get:
 
@@ -246,7 +250,7 @@ curl http://localhost:8080
 
 ---
 
-# ✅ STEP 3 – Deploy student.war
+## ✅ STEP 3 – Deploy student.war
 
 ### 📂 Move to Tomcat Webapps Directory
 
@@ -305,7 +309,7 @@ The presence of the `student/` directory confirms:
 
 ---
 
-# ✅ STEP 4 – Setup RDS MySQL
+## ✅ STEP 4 – Setup RDS MySQL
 
 ### 🗄️ Create Database
 
@@ -340,7 +344,7 @@ AWS Console → RDS → Create Database
 
 ---
 
-# ✅ STEP 5 – Create Database & Table
+## ✅ STEP 5 – Create Database & Table
 
 ### 🔗 Connect from Backend EC2
 
@@ -376,7 +380,7 @@ CREATE TABLE students (
 
 ---
 
-# ✅ STEP 6 – Add MySQL Connector
+## ✅ STEP 6 – Add MySQL Connector
 
 ### 📦 Download MySQL Connector
 
@@ -431,7 +435,7 @@ curl http://localhost:8080/student/
 ---
 
 
-# ✅ STEP 7 – Configure Reverse Proxy (Nginx)
+## ✅ STEP 7 – Configure Reverse Proxy (Nginx)
 
 ### 🔗 SSH into Proxy EC2
 
@@ -468,7 +472,7 @@ sudo systemctl restart nginx
 
 ---
 
-# ✅ STEP 8 – Block Direct Backend Access
+## ✅ STEP 8 – Block Direct Backend Access
 
 **Backend Security Group:**
 
@@ -477,7 +481,7 @@ sudo systemctl restart nginx
 
 ---
 
-# ✅ STEP 9 – Final Access URL
+## ✅ STEP 9 – Final Access URL
 
 Now access your application via:
 
@@ -577,9 +581,30 @@ Key Learning:
 ---
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
-# 🚀 Project: AWS Backup Plan for EC2 and RDS
+---
+
+# 🚀 Project 2: AWS Backup Plan for EC2 and RDS
+
+---
+
+<br>
+<br>
+<br>
+
 
 ## 📌 Project Overview
 
@@ -595,7 +620,7 @@ The goal is to create a **centralized backup strategy** and validate backup jobs
 
 ---
 
-# 🎯 Objective
+### 🎯 Objective
 
 - Launch an **EC2 instance** with a web server and sample data  
 - Launch an **RDS database** with test records  
@@ -607,7 +632,7 @@ The goal is to create a **centralized backup strategy** and validate backup jobs
 
 ---
 
-# 🏗️ Architecture
+### 🏗️ Architecture
 
 ```
 EC2 Instance (Web Server)
@@ -623,7 +648,7 @@ Both **EC2 and RDS resources** are protected using the **AWS Backup service**.
 
 ---
 
-# 🛠️ Technologies Used
+### 🛠️ Technologies Used
 
 - **Amazon EC2**
 - **Amazon RDS (MySQL)**
@@ -634,7 +659,7 @@ Both **EC2 and RDS resources** are protected using the **AWS Backup service**.
 
 ---
 
-# 🚀 STEP 1 – Launch EC2 Instance
+## 🚀 STEP 1 – Launch EC2 Instance
 
 Go to:
 
@@ -671,7 +696,7 @@ Launch the instance.
 
 ---
 
-# 🔐 STEP 2 – Connect to EC2
+## 🔐 STEP 2 – Connect to EC2
 
 SSH into the instance:
 
@@ -681,7 +706,7 @@ ssh -i key.pem ec2-user@<EC2-Public-IP>
 
 ---
 
-# 🌐 STEP 3 – Install Web Server (Nginx)
+## 🌐 STEP 3 – Install Web Server (Nginx)
 
 Update system packages
 
@@ -704,7 +729,7 @@ sudo systemctl enable nginx
 
 ---
 
-# 📄 STEP 4 – Create Sample Web Data
+## 📄 STEP 4 – Create Sample Web Data
 
 Navigate to web directory
 
@@ -727,7 +752,7 @@ Add sample content
 
 ---
 
-# 🔎 Verify Web Server
+## 🔎 Verify Web Server
 
 Open in browser:
 
@@ -746,7 +771,7 @@ You should see the **sample web page**.
 
 ---
 
-# 🗄️ STEP 5 – Launch RDS Database
+## 🗄️ STEP 5 – Launch RDS Database
 
 Go to:
 
@@ -780,7 +805,7 @@ Wait until status becomes **Available**.
 
 ---
 
-# 🔗 STEP 6 – Connect to RDS from EC2
+## 🔗 STEP 6 – Connect to RDS from EC2
 
 Install MySQL client
 
@@ -796,7 +821,7 @@ mysql -h <RDS-ENDPOINT> -u admin -p
 
 ---
 
-# 🗃️ STEP 7 – Create Test Database and Table
+## 🗃️ STEP 7 – Create Test Database and Table
 
 Create database
 
@@ -837,7 +862,7 @@ SELECT * FROM users;
 
 ---
 
-# 💾 STEP 8 – Open AWS Backup Service
+## 💾 STEP 8 – Open AWS Backup Service
 
 Navigate to:
 
@@ -845,7 +870,7 @@ Navigate to:
 
 ---
 
-# 🗄️ STEP 9 – Create Backup Vault
+## 🗄️ STEP 9 – Create Backup Vault
 
 Go to:
 
@@ -871,7 +896,7 @@ Click **Create Backup Vault**.
 
 ---
 
-# 📋 STEP 10 – Create Backup Plan
+## 📋 STEP 10 – Create Backup Plan
 
 Go to:
 
@@ -909,7 +934,7 @@ Click **Create Plan**.
 
 ---
 
-# 🔗 STEP 11 – Assign Resources to Backup Plan
+## 🔗 STEP 11 – Assign Resources to Backup Plan
 
 Click:
 
@@ -944,7 +969,7 @@ Click **Assign Resources**.
 
 ---
 
-# ▶️ STEP 12 – Trigger On-Demand Backup
+## ▶️ STEP 12 – Trigger On-Demand Backup
 
 Go to:
 
@@ -983,7 +1008,7 @@ Click **Create Backup**.
 
 ---
 
-# ✅ STEP 13 – Validate Backup Jobs
+## ✅ STEP 13 – Validate Backup Jobs
 
 Go to:
 
@@ -1006,7 +1031,7 @@ Status = Completed
 
 ---
 
-# 🚀 STEP 14 – Verify Recovery Points
+## 🚀 STEP 14 – Verify Recovery Points
 
 If you want to verify whether the **backup has been successfully created**, you can view the **Recovery Points** stored inside the Backup Vault.
 
@@ -1051,7 +1076,7 @@ This confirms that the **backup was successfully created and stored in the backu
 
 ---
 
-# ♻️ STEP 15 – Restore Backup and Verify Original Data
+## ♻️ STEP 15 – Restore Backup and Verify Original Data
 
 AWS Backup does **not allow direct viewing of raw data** inside a backup.
 
@@ -1059,7 +1084,7 @@ To view the **original stored data** (for example: `name`, `email`), you must **
 
 ---
 
-## 🔁 Restore RDS Database from Backup
+### 🔁 Restore RDS Database from Backup
 
 Go to:
 
@@ -1087,7 +1112,7 @@ Wait until the database status becomes **Available**.
 
 ---
 
-## 🔗 Connect to Restored RDS Database
+### 🔗 Connect to Restored RDS Database
 
 Connect from EC2:
 
@@ -1111,7 +1136,7 @@ You should see the original stored data:
 
 ---
 
-## 🖥️ (Optional) Restore EC2 Instance from Backup
+### 🖥️ (Optional) Restore EC2 Instance from Backup
 
 You can also restore the **EC2 instance** from the backup.
 
@@ -1151,7 +1176,7 @@ After completing the project, make sure to delete all the AWS resources that wer
 ---
 ---
 
-# ⚠️ Issues Faced
+## ⚠️ Issues Faced
 
 Possible issues during implementation:
 
@@ -1163,7 +1188,7 @@ These were resolved by verifying **security groups**, **RDS endpoint**, and **IA
 
 ---
 
-# 📌 Conclusion
+## 📌 Conclusion
 
 This project demonstrates how to implement a **centralized backup solution using AWS Backup** to protect AWS resources such as **EC2 instances and RDS databases**.
 
@@ -1171,7 +1196,7 @@ Automated backups ensure **data protection**, **disaster recovery**, and **high 
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Nikhil Misal**
 
@@ -1185,7 +1210,18 @@ AWS Cloud Project
 
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
