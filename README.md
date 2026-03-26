@@ -135,7 +135,7 @@ These implementations emphasize:
 
 <br>
 <br>
-<br>
+
 
 
 ## 🚀 STEP 1 – Launch EC2 Instances
@@ -337,7 +337,7 @@ AWS Console → RDS → Create Database
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20102202.png?raw=true" width="700" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20102202.png?raw=true" width="800" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -503,7 +503,7 @@ http://<Proxy-Public-IP>/student
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20110135.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-1/Screenshot%202026-03-21%20110135.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -603,7 +603,7 @@ Key Learning:
 
 <br>
 <br>
-<br>
+
 
 
 ## 📌 Project Overview
@@ -688,7 +688,7 @@ Launch the instance.
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20164323.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20164323.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -764,7 +764,7 @@ You should see the **sample web page**.
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20163734.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20163734.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -799,7 +799,7 @@ Wait until status becomes **Available**.
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215036.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215036.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -854,7 +854,7 @@ SELECT * FROM users;
 ```
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215147.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215147.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -888,7 +888,7 @@ Click **Create Backup Vault**.
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215314.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215314.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -924,7 +924,7 @@ Click **Create Plan**.
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215353.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215353.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -959,7 +959,7 @@ Click **Assign Resources**.
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215609.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215609.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -999,7 +999,7 @@ Click **Create Backup**.
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215707.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215707.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -1023,7 +1023,7 @@ Status = Completed
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215735.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20215735.png?raw=true" width="700" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -1067,7 +1067,7 @@ This confirms that the **backup was successfully created and stored in the backu
 
 
 <p align="center">
-  <img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20220044.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+<img src="https://github.com/nikiimisal/Internship--Project-s/blob/main/img/proj-2/Screenshot%202026-03-09%20220044.png?raw=true" width="800" alt="Initialize Repository Screenshot">
 </p>
 
 
