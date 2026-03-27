@@ -26,11 +26,11 @@ The assignments focus on real-world cloud architecture, secure deployments, infr
 
 ## 📂 Project Navigation
 
-- 🚀 [Project 1 – Java Application Deployment with Reverse Proxy on AWS](./Project-1-Java-Deployment)
-- 💾 [Project 2 – AWS Backup Plan for EC2 and RDS](./Project-2-AWS-Backup)
-- 📊 [Project 3 – Data Ingestion (S3 → RDS → Glue Fallback) using Docker(Python Application)](./Project-3-S3-RDS-Glue)
-- 📈 [Project 4 – Deploy Prometheus & Grafana using Terraform & Helm](./Project-4-Monitoring-Terraform)
-- ☸️ [Project 5 – Deploying & Managing Microservices in Kubernetes](./Project-5-Kubernetes-Microservices)
+- 🚀 [Project 1 – Java Application Deployment with Reverse Proxy on AWS](#example-0)
+- 💾 [Project 2 – AWS Backup Plan for EC2 and RDS](#example-1)
+- 📊 [Project 3 – Data Ingestion (S3 → RDS → Glue Fallback) using Docker(Python Application)](#example-2)
+- 📈 [Project 4 – Deploy Prometheus & Grafana using Terraform & Helm](#example-3)
+- ☸️ [Project 5 – Deploying & Managing Microservices in Kubernetes](#example-4)
 
 ---
 
@@ -127,6 +127,9 @@ These implementations emphasize:
 
 
 ---
+
+
+<a id="example-0"></a>
 
 
 #  🚀 Project 1: Java App Deployment with Reverse Proxy on AWS
@@ -596,6 +599,8 @@ Key Learning:
 
 
 ---
+
+<a id="example-1"></a>
 
 # 🚀 Project 2: AWS Backup Plan for EC2 and RDS
 
@@ -1230,6 +1235,9 @@ AWS Cloud Project
 
 ---
 
+<a id="example-2"></a>
+
+
 # 🚀 Project 3: Data Ingestion from S3 to RDS with Glue Fallback
 
 ---
@@ -1679,6 +1687,10 @@ This project implements a **scalable, fault-tolerant data pipeline** using **AWS
 
 
 ---
+
+
+<a id="example-3"></a>
+
 
 # Project 4: Deploy Prometheus and Grafana on Kubernetes Cluster using Terraform & Helm 
 
@@ -2156,6 +2168,10 @@ EC2 → containerd → kubeadm → Kubernetes → Helm → Terraform → Prometh
 
 
 ---
+
+
+
+<a id="example-4"></a>
 
 
 # 🚀 Project 5: Deploying Microservices in a Cloud-Native Environment
